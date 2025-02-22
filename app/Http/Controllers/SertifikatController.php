@@ -29,6 +29,7 @@ class SertifikatController extends Controller
             'nama' => 'required|string|max:255',
             'tanggal' => 'required|date',
             'jenis_course' => 'required|string|max:255',
+            'nilai' => 'nullable|integer|min:0|max:100', // Pastikan nilai antara 0-100
         ]);
 
         // Simpan ke database
@@ -37,6 +38,7 @@ class SertifikatController extends Controller
             'nama' => $request->nama,
             'tanggal' => $request->tanggal,
             'jenis_course' => $request->jenis_course,
+            'nilai' => $request->nilai ?? 0, // Jika tidak ada input nilai, set default 0
         ]);
 
         return redirect()->route('sertifikat.index')->with('success', 'Sertifikat berhasil ditambahkan.');
@@ -65,6 +67,7 @@ class SertifikatController extends Controller
             'nama' => 'required|string|max:255',
             'tanggal' => 'required|date',
             'jenis_course' => 'required|string|max:255',
+            'nilai' => 'nullable|integer|min:0|max:100',
         ]);
 
         // Update data
@@ -74,6 +77,7 @@ class SertifikatController extends Controller
             'nama' => $request->nama,
             'tanggal' => $request->tanggal,
             'jenis_course' => $request->jenis_course,
+            'nilai' => $request->nilai ?? 0,
         ]);
 
         return redirect()->route('sertifikat.index')->with('success', 'Sertifikat berhasil diperbarui.');

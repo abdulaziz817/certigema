@@ -18,10 +18,11 @@ return new class extends Migration
             $table->date('tanggal');
             $table->string('jenis_course'); // Opsi jenis kursus
             $table->text('materi')->nullable(); // Bisa kosong
-            $table->integer('nilai')->unsigned(); // Nilai positif
+            $table->integer('nilai')->unsigned()->default(0); // Pastikan hanya satu definisi kolom nilai
             $table->text('keterangan')->nullable();
             $table->string('ttd_digital_1')->nullable();
             $table->string('ttd_digital_2')->nullable();
+
             $table->timestamps();
         });
     }
