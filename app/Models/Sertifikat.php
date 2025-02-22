@@ -9,10 +9,7 @@ class Sertifikat extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'judul',
-        'nama',
-        'tanggal',
-        'jenis_course'
-    ];
+    protected $table = 'sertifikats'; // Sesuaikan dengan nama tabel di database
+
+    protected $fillable = ['judul', 'nama', 'tanggal', 'jenis_course'];
 }

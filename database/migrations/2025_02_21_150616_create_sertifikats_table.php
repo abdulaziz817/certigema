@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Jalankan migrasi.
      */
     public function up()
     {
@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('judul');
             $table->string('nama');
             $table->date('tanggal');
-            $table->string('jenis_course'); // Option Course
-            $table->text('materi');
-            $table->integer('nilai');
+            $table->string('jenis_course'); // Opsi jenis kursus
+            $table->text('materi')->nullable(); // Bisa kosong
+            $table->integer('nilai')->unsigned(); // Nilai positif
             $table->text('keterangan')->nullable();
             $table->string('ttd_digital_1')->nullable();
             $table->string('ttd_digital_2')->nullable();
@@ -27,7 +27,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Kembalikan perubahan migrasi.
      */
     public function down(): void
     {
